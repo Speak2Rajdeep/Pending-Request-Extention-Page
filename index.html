@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Pending Request Extended Page</title>
+  <link href="stylees.css" rel="stylesheet">
+  <a href="#" data-target="html" class="scroll-to-target scroll-to-top"><i class="fa fa-angle-up"></i></a>
+
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  
+  <!-- plugin scripts -->
+  
+  <link
+    href="https://fonts.googleapis.com/css?family=Barlow:300,400,500,600,700,800,900%7CLibre+Baskerville:400,700&display=swap"
+    rel="stylesheet" />
+  
+  
+  <link rel="stylesheet" href="bootstrap.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="responsive.css" />
+  <link rel="stylesheet" href="responsive.css.map" />
+ 
+
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <button data-modal-target="#modal">Click Me!</button>
+  <div class="modal" id="modal">
+    <div class="modal-header">
+
+
+
+      <div class="title" style="color:black; position: center; font-size: 24px; font-family: Georgia, 'Times New Roman', Times, serif">User Details</div>
+      <button data-close-button class="close-button">&times;</button>
+    </div>
+    <div class="modal-body">
+
+
+<div
+              class="tab-pane fade show active"
+              id="account"
+              role="tabpanel"
+              aria-labelledby="account-tab"
+            >
+              <form
+                th:action="@{/update}"
+                method="post"
+                th:object="${user}"
+                enctype="multipart/form-data"
+              >
+                <!-- Account Settings Fields-->
+                <h3 class="mb-4"  ></h3>
+
+                <div class="row">
+
+
+
+                  <div class="col-md-6">
+                    <div class="form-group" style="color:black">
+                      <label for="inputAddress" class="form-label">Adhaar No.</label> &nbsp;&nbsp;
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <input id="adhaar" value="default" type="text" th:name="username" required class="form-control" th:value="${currentUser.username}"
+                        readonly />
+                    </div>
+                  </div>
+                  <br>
+
+
+                  <div class="col-md-6">
+                    <div class="form-group"  style="color:black">
+                      <label>First Name</label> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <input
+                        type="text"
+                        th:name="firstname"
+                        class="form-control" 
+                        th:value="${currentUser.Firstname}" value="default"
+                        readonly 
+                      />
+                    </div>
+                  </div>
+
+
+                  <div class="col-md-6">
+                    <div class="form-group"  style="color:black">
+                      <label>Last Name</label>&nbsp;&nbsp;
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <input
+                        type="text"
+                        th:name="lastname"
+                        class="form-control"
+                        th:value="${currentUser.Lastname}" value="default"
+                        readonly
+                      />
+                    </div>
+                  </div>
+                  
+                  
+
+                  <div class="col-md-6">
+                    <div class="form-group"  style="color:black">
+                      <label>Email</label> &nbsp;&nbsp;
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <input
+                        type="text"
+                        th:name="email"
+                        class="form-control"
+                        th:value="${currentUser.email}" value="default"
+                        readonly
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="inputDOB" class="form-label"  style="color:black"
+                      >Date of Birth</label
+                    >&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input
+                      id="birth"
+                      type="date"
+                      th:name="birthday"
+                      class="form-control"
+                      th:value="${currentUser.birthday}" value="default"
+                      readonly
+                    />
+                  </div>
+
+                  <div class="col-md-4">
+                    <label for="inputZip" class="form-label"  style="color:black">Zip</label> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input
+                      type="text"
+                      th:name="zip"
+                      class="form-control"
+                      id="inputZip"
+                      th:value="${currentUser.zip}" value="default"
+                      readonly
+                    />
+                  </div>
+                  <div class="col-md-8">
+                    <div class="form-group"  style="color:black">
+                      <label>Phone number</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <input
+                        type="text"
+                        th:name="mobileno"
+                        class="form-control"
+                        th:value="${currentUser.mobileno}" value="default"
+                        readonly
+                      />
+                    </div>
+                  </div>
+                  <div div class="col-12"  style="color:black">
+                    <label>Photos:  </label>
+                    <br />
+
+                    <p>
+                      <img
+                        id="thumbnail"
+                        alt="Logo Preview"
+                        src=""
+                        height="200px"
+                        width="150px"
+                        style="margin-left: 200px; display: none"
+                      />
+                    </p>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group"  style="color:black">
+                      <label>Gender</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <input
+                        type="text"
+                        th:name="gender"
+                        class="form-control"
+                        th:value="${currentUser.gender}" value="default"
+                        readonly
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <div class="form-group"  style="color:black">
+                      <label>Address</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <input
+                        type="text"
+                        th:name="address"
+                        class="form-control" value="default"
+                      
+                        th:value="${currentUser.address}"
+                        readonly
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group"  style="color:black">
+                      <label>State</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <input
+                        type="text"
+                        th:name="state"
+                        class="form-control"
+                        th:value="${currentUser.state}" value="default"
+                        readonly
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group"  style="color:black">
+                      <label>City</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <input
+                        type="text"
+                        th:name="city"
+                        class="form-control"
+                        th:value="${currentUser.city}" value="default"
+                        readonly
+                      />
+                    </div>
+                  </div>
+                </div>
+
+
+                 <!-- Update Button -->
+                 
+
+                <div class="btn" >
+                  <button class="btn-hover color-9">Approve</button>
+                  <button class="btn-hover color-11">Cancel</button>
+                </div>
+              </form>
+            </div>
+
+      
+    </div>
+  </div>
+
+
+  <script>  $(document).ready(function () {
+      $("#fileimage").change(function () {
+        showImageThumbnail(this);
+      });
+    });
+
+    function showImageThumbnail(fileInput) {
+      file = fileInput.files[0];
+      reader = new FileReader();
+
+      reader.onload = function (e) {
+        $("#thumbnail").attr("src", e.target.result);
+        $("#thumbnail").css("display", "block");
+      };
+      reader.readAsDataURL(file);
+    }
+  </script>
+  <div id="overlay"></div>
+</body>
+</html>
